@@ -1,9 +1,9 @@
 import React from 'react'
 
-const \ = () => {
+const FilterBar = () => {
   return (
-    <div>\</div>
+    <div>FilterBar</div>
   )
 }
 
-export default \
+export default FilterBar
