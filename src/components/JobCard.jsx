@@ -1,7 +1,6 @@
 import React from 'react'
 
-const JobCard = () => {
-  return (
+const JobCard = () =>
     <div>JobCard</div>
   )
 }
