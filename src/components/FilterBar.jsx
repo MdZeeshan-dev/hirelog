@@ -5,5 +5,5 @@ const FilterBar = () => {
     <div>FilterBar</div>
   )
 }
-
+     
 export default FilterBar
