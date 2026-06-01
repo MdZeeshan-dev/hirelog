@@ -30,7 +30,7 @@ function JobCard({ company, role, status, priority, date, onDelete }) {
       <div className="flex gap-2 mt-5">
         <span className="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-600">
           {status}
-        </span>
+        </span>                                    
 
         <span className={`px-3 py-1 rounded-full text-sm ${priorityStyle}`}>
           {priority}
