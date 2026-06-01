@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import Navbar from "../components/Navbar";
 import StatCard from "../components/StatCard";
 import FilterBar from "../components/FilterBar";
@@ -10,7 +11,15 @@ import { jobs } from "../data/jobs";
 function Dashboard() {
   const [showForm, setShowForm] = useState(false);
 
-  const [jobList, setJobList] = useState(jobs);
+  const [jobList, setJobList] = useState(() => {
+    const savedJobs = localStorage.getItem("jobs");
+
+    if (savedJobs) {
+      return JSON.parse(savedJobs);
+    }
+
+    return jobs;
+  });
 
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
@@ -23,6 +32,10 @@ function Dashboard() {
   };
 
   const handleAddJob = () => {
+    if (!company.trim() || !role.trim()) {
+      return;
+    }
+
     const newJob = {
       id: Date.now(),
       company,
@@ -41,6 +54,10 @@ function Dashboard() {
 
     setShowForm(false);
   };
+
+  useEffect(() => {
+    localStorage.setItem("jobs", JSON.stringify(jobList));
+  }, [jobList]);
 
   return (
     <div className="min-h-screen bg-gray-50">
