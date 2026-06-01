@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import StatCard from "../components/StatCard";
 import FilterBar from "../components/FilterBar";
@@ -18,6 +17,11 @@ function Dashboard() {
   const [status, setStatus] = useState("Applied");
   const [priority, setPriority] = useState("High");
 
+  const handleDeleteJob = (id) => {
+    const updatedJobs = jobList.filter((job) => job.id !== id);
+    setJobList(updatedJobs);
+  };
+
   const handleAddJob = () => {
     const newJob = {
       id: Date.now(),
@@ -28,11 +32,6 @@ function Dashboard() {
       date: new Date().toLocaleDateString(),
     };
 
-    const handleDeleteJob = (id) => {
-      const updatedJobs = jobList.filter((job) => job.id !== id);
-      setJobList(updatedJobs);
-    };
-
     setJobList([newJob, ...jobList]);
 
     setCompany("");
@@ -41,7 +40,7 @@ function Dashboard() {
     setPriority("High");
 
     setShowForm(false);
-  };    
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">

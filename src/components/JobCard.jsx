@@ -42,12 +42,12 @@ function JobCard({ company, role, status, priority, date, onDelete }) {
           Edit
         </button>
 
-<button
-  onClick={onDelete}
-  className="flex-1 bg-red-500 text-white rounded-lg py-2 hover:bg-red-600"
->
-  Delete
-</button>
+        <button
+          onClick={onDelete}
+          className="flex-1 bg-red-500 text-white rounded-lg py-2 hover:bg-red-600"
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
