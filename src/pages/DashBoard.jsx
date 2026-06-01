@@ -29,9 +29,9 @@ function Dashboard() {
     };
 
     const handleDeleteJob = (id) => {
-  const updatedJobs = jobList.filter((job) => job.id !== id);
-  setJobList(updatedJobs);
-};
+      const updatedJobs = jobList.filter((job) => job.id !== id);
+      setJobList(updatedJobs);
+    };
 
     setJobList([newJob, ...jobList]);
 
@@ -41,7 +41,7 @@ function Dashboard() {
     setPriority("High");
 
     setShowForm(false);
-  };
+  };    
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -99,15 +99,15 @@ function Dashboard() {
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {jobList.map((job) => (
-<JobCard
-  key={job.id}
-  company={job.company}
-  role={job.role}
-  status={job.status}
-  priority={job.priority}
-  date={job.date}
-  onDelete={() => handleDeleteJob(job.id)}
-/>
+                <JobCard
+                  key={job.id}
+                  company={job.company}
+                  role={job.role}
+                  status={job.status}
+                  priority={job.priority}
+                  date={job.date}
+                  onDelete={() => handleDeleteJob(job.id)}
+                />
               ))}
             </div>
           </div>
