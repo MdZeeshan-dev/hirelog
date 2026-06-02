@@ -6,6 +6,7 @@ import FilterBar from "../components/FilterBar";
 import JobCard from "../components/JobCard";
 import ApplicationStats from "../components/ApplicationStats";
 
+
 import { jobs } from "../data/jobs";
 
 function Dashboard() {
@@ -21,9 +22,11 @@ function Dashboard() {
     return jobs;
   });
 
+const [priorityFilter, setPriorityFilter] = useState("All");
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [status, setStatus] = useState("Applied");
+  const [statusFilter, setStatusFilter] = useState("All");
   const [priority, setPriority] = useState("High");
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -91,9 +94,18 @@ function Dashboard() {
     localStorage.setItem("jobs", JSON.stringify(jobList));
   }, [jobList]);
 
-  const filteredJobs = jobList.filter((job) =>
-    job.company.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+const filteredJobs = jobList.filter((job) => {
+  const matchesSearch =
+    job.company.toLowerCase().includes(searchTerm.toLowerCase());
+
+  const matchesStatus =
+    statusFilter === "All" || job.status === statusFilter;
+
+  const matchesPriority =
+    priorityFilter === "All" || job.priority === priorityFilter;
+
+  return matchesSearch && matchesStatus && matchesPriority;
+});
 
   const totalApplied = jobList.length;
 
@@ -109,18 +121,19 @@ const totalOffers = jobList.filter(
   (job) => job.status === "Offer"
 ).length;
 
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
       <Navbar />
 
       <div className="max-w-[1400px] mx-auto px-6 py-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-5xl font-bold">
+           <h1 className="text-5xl font-bold text-black dark:text-white">
               Welcome, Zeeshan!
             </h1>
 
-            <p className="text-gray-600 mt-3 text-lg">
+           <p className="text-gray-600 dark:text-gray-300 mt-3 text-lg">
               Track your job applications efficiently.
             </p>
           </div>
@@ -158,11 +171,14 @@ const totalOffers = jobList.filter(
             subtitle="Offers"
           />
         </div>
-
-        <FilterBar
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-        />
+<FilterBar
+  searchTerm={searchTerm}
+  setSearchTerm={setSearchTerm}
+  statusFilter={statusFilter}
+  setStatusFilter={setStatusFilter}
+  priorityFilter={priorityFilter}
+  setPriorityFilter={setPriorityFilter}
+/>
 
         <div className="grid lg:grid-cols-4 gap-6 mt-8">
           <div className="lg:col-span-3">
@@ -186,15 +202,15 @@ const totalOffers = jobList.filter(
           </div>
 
           <div>
-            <ApplicationStats />
+            <ApplicationStats jobList={jobList} />
           </div>
         </div>
       </div>
 
       {showForm && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white w-full max-w-md rounded-xl p-6">
-            <h2 className="text-xl font-semibold mb-4">
+        <div className="bg-white dark:bg-slate-800 w-full max-w-md rounded-xl p-6">
+           <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
               {editingJob ? "Edit Job" : "Add New Job"}
             </h2>
 

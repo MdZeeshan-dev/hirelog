@@ -1,15 +1,29 @@
-function ApplicationStats() {
+function ApplicationStats({ jobList }) {
+  const totalApplied = jobList.length;
+
+  const totalInterviews = jobList.filter(
+    (job) => job.status === "Interview"
+  ).length;
+
+  const totalRejected = jobList.filter(
+    (job) => job.status === "Rejected"
+  ).length;
+
+  const totalOffers = jobList.filter(
+    (job) => job.status === "Offer"
+  ).length;
+
   return (
-    <div className="bg-white rounded-xl border p-6 min-h-[350px]">
-      <h2 className="text-2xl font-semibold">
+    <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-6 min-h-[350px]">
+      <h2 className="text-2xl font-semibold text-black dark:text-white">
         Application Stats
       </h2>
 
       <div className="mt-8 space-y-6">
         <div>
           <div className="flex justify-between">
-            <span>Applied</span>
-            <span>24</span>
+            <span className="dark:text-gray-300">Applied</span>
+            <span className="dark:text-white">{totalApplied}</span>
           </div>
 
           <div className="h-2 bg-gray-200 rounded-full mt-2">
@@ -19,8 +33,8 @@ function ApplicationStats() {
 
         <div>
           <div className="flex justify-between">
-            <span>Interviews</span>
-            <span>5</span>
+            <span className="dark:text-gray-300">Interviews</span>
+            <span className="dark:text-white">{totalInterviews}</span>
           </div>
 
           <div className="h-2 bg-gray-200 rounded-full mt-2">
@@ -30,8 +44,8 @@ function ApplicationStats() {
 
         <div>
           <div className="flex justify-between">
-            <span>Rejected</span>
-            <span>8</span>
+            <span className="dark:text-gray-300">Rejected</span>
+            <span className="dark:text-white">{totalRejected}</span>
           </div>
 
           <div className="h-2 bg-gray-200 rounded-full mt-2">
@@ -41,8 +55,8 @@ function ApplicationStats() {
 
         <div>
           <div className="flex justify-between">
-            <span>Offers</span>
-            <span>2</span>
+            <span className="dark:text-gray-300">Offers</span>
+            <span className="dark:text-white">{totalOffers}</span>
           </div>
 
           <div className="h-2 bg-gray-200 rounded-full mt-2">
@@ -52,24 +66,32 @@ function ApplicationStats() {
       </div>
 
       <div className="grid grid-cols-2 gap-3 mt-8">
-        <div className="border rounded-lg p-3 text-center">
+        <div className="border dark:border-slate-700 rounded-lg p-3 text-center">
           <p className="text-sm text-gray-500">Applied</p>
-          <h3 className="text-xl font-bold">24</h3>
+          <h3 className="text-xl font-bold dark:text-white">
+            {totalApplied}
+          </h3>
         </div>
 
-        <div className="border rounded-lg p-3 text-center">
+        <div className="border dark:border-slate-700 rounded-lg p-3 text-center">
           <p className="text-sm text-gray-500">Interviews</p>
-          <h3 className="text-xl font-bold">5</h3>
+          <h3 className="text-xl font-bold dark:text-white">
+            {totalInterviews}
+          </h3>
         </div>
 
-        <div className="border rounded-lg p-3 text-center">
+        <div className="border dark:border-slate-700 rounded-lg p-3 text-center">
           <p className="text-sm text-gray-500">Rejected</p>
-          <h3 className="text-xl font-bold text-red-500">8</h3>
+          <h3 className="text-xl font-bold text-red-500">
+            {totalRejected}
+          </h3>
         </div>
 
-        <div className="border rounded-lg p-3 text-center">
+        <div className="border dark:border-slate-700 rounded-lg p-3 text-center">
           <p className="text-sm text-gray-500">Offers</p>
-          <h3 className="text-xl font-bold">2</h3>
+          <h3 className="text-xl font-bold dark:text-white">
+            {totalOffers}
+          </h3>
         </div>
       </div>
     </div>

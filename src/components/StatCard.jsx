@@ -2,9 +2,11 @@ import { Briefcase } from "lucide-react";
 
 function StatCard({ title, value, subtitle }) {
   return (
-    <div className="bg-white rounded-xl p-6 border shadow-sm">
+    <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-6 shadow-sm">
       <div className="flex items-center justify-between">
-        <h3 className="text-gray-500">{title}</h3>
+        <h3 className="text-gray-500 dark:text-gray-300">
+          {title}
+        </h3>
 
         <Briefcase size={20} className="text-blue-600" />
       </div>
@@ -14,7 +16,7 @@ function StatCard({ title, value, subtitle }) {
           {value}
         </h2>
 
-        <p className="text-gray-500 mt-1">
+        <p className="text-gray-500 dark:text-gray-400 mt-1">
           {subtitle}
         </p>
       </div>

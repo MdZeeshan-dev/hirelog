@@ -18,14 +18,14 @@ function JobCard({
   }
 
   return (
-    <div className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition">
+   <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md transition">
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-2xl font-semibold">
+      <h2 className="text-2xl font-semibold text-black dark:text-white">
             {company}
           </h2>
 
-          <p className="text-gray-600 mt-2">
+        <p className="text-gray-600 dark:text-gray-300 mt-2">
             {role}
           </p>
         </div>
