@@ -28,11 +28,24 @@ function Dashboard() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
+
+  const [editingJob, setEditingJob] = useState(null);
   const handleDeleteJob = (id) => {
     const updatedJobs = jobList.filter((job) => job.id !== id);
     setJobList(updatedJobs);
   };
 
+
+  const handleEditJob = (job) => {
+  setEditingJob(job);
+
+  setCompany(job.company);
+  setRole(job.role);
+  setStatus(job.status);
+  setPriority(job.priority);
+
+  setShowForm(true);
+};
   const handleAddJob = () => {
     if (!company.trim() || !role.trim()) {
       return;
@@ -62,8 +75,8 @@ function Dashboard() {
   }, [jobList]);
 
   const filteredJobs = jobList.filter((job) =>
-  job.company.toLowerCase().includes(searchTerm.toLowerCase())
-);
+    job.company.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -116,16 +129,16 @@ function Dashboard() {
         </div>
 
         <FilterBar
-  searchTerm={searchTerm}
-  setSearchTerm={setSearchTerm}
-/>
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
 
         <div className="grid lg:grid-cols-4 gap-6 mt-8">
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              
-              
-              
+
+
+
               {filteredJobs.map((job) => (
                 <JobCard
                   key={job.id}
@@ -135,6 +148,7 @@ function Dashboard() {
                   priority={job.priority}
                   date={job.date}
                   onDelete={() => handleDeleteJob(job.id)}
+                  onEdit={() => setEditingJob(job)}
                 />
               ))}
             </div>

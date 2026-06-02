@@ -1,4 +1,12 @@
-function JobCard({ company, role, status, priority, date, onDelete }) {
+function JobCard({
+  company,
+  role,
+  status,
+  priority,
+  date,
+  onDelete,
+  onEdit,
+}) {
   let priorityStyle = "";
 
   if (priority === "High") {
@@ -30,7 +38,7 @@ function JobCard({ company, role, status, priority, date, onDelete }) {
       <div className="flex gap-2 mt-5">
         <span className="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-600">
           {status}
-        </span>                                    
+        </span>
 
         <span className={`px-3 py-1 rounded-full text-sm ${priorityStyle}`}>
           {priority}
@@ -38,7 +46,10 @@ function JobCard({ company, role, status, priority, date, onDelete }) {
       </div>
 
       <div className="flex gap-3 mt-6">
-        <button className="flex-1 border rounded-lg py-2 hover:bg-gray-100">
+        <button
+          onClick={onEdit}
+          className="flex-1 border rounded-lg py-2 hover:bg-gray-100"
+        >
           Edit
         </button>
 
