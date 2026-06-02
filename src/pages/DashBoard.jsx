@@ -182,23 +182,32 @@ const totalOffers = jobList.filter(
 
         <div className="grid lg:grid-cols-4 gap-6 mt-8">
           <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+  {filteredJobs.length === 0 ? (
+    <div className="col-span-full bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-10 text-center">
+      <h2 className="text-2xl font-semibold text-black dark:text-white">
+        No jobs found
+      </h2>
 
-
-
-              {filteredJobs.map((job) => (
-                <JobCard
-                  key={job.id}
-                  company={job.company}
-                  role={job.role}
-                  status={job.status}
-                  priority={job.priority}
-                  date={job.date}
-                  onDelete={() => handleDeleteJob(job.id)}
-                  onEdit={() => handleEditJob(job)}
-                />
-              ))}
-            </div>
+      <p className="text-gray-500 mt-2">
+        Start by adding your first application.
+      </p>
+    </div>
+  ) : (
+    filteredJobs.map((job) => (
+      <JobCard
+        key={job.id}
+        company={job.company}
+        role={job.role}
+        status={job.status}
+        priority={job.priority}
+        date={job.date}
+        onDelete={() => handleDeleteJob(job.id)}
+        onEdit={() => handleEditJob(job)}
+      />
+    ))
+  )}
+</div>
           </div>
 
           <div>
