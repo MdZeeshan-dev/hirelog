@@ -26,6 +26,8 @@ function Dashboard() {
   const [status, setStatus] = useState("Applied");
   const [priority, setPriority] = useState("High");
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   const handleDeleteJob = (id) => {
     const updatedJobs = jobList.filter((job) => job.id !== id);
     setJobList(updatedJobs);
@@ -114,6 +116,9 @@ function Dashboard() {
         <div className="grid lg:grid-cols-4 gap-6 mt-8">
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              
+              
+              
               {jobList.map((job) => (
                 <JobCard
                   key={job.id}
