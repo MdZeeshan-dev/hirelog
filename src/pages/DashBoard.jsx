@@ -37,30 +37,47 @@ function Dashboard() {
 
 
   const handleEditJob = (job) => {
-  setEditingJob(job);
+    setEditingJob(job);
 
-  setCompany(job.company);
-  setRole(job.role);
-  setStatus(job.status);
-  setPriority(job.priority);
+    setCompany(job.company);
+    setRole(job.role);
+    setStatus(job.status);
+    setPriority(job.priority);
 
-  setShowForm(true);
-};
+    setShowForm(true);
+  };
   const handleAddJob = () => {
     if (!company.trim() || !role.trim()) {
       return;
     }
 
-    const newJob = {
-      id: Date.now(),
-      company,
-      role,
-      status,
-      priority,
-      date: new Date().toLocaleDateString(),
-    };
+    if (editingJob) {
+      const updatedJobs = jobList.map((job) =>
+        job.id === editingJob.id
+          ? {
+            ...job,
+            company,
+            role,
+            status,
+            priority,
+          }
+          : job
+      );
 
-    setJobList([newJob, ...jobList]);
+      setJobList(updatedJobs);
+      setEditingJob(null);
+    } else {
+      const newJob = {
+        id: Date.now(),
+        company,
+        role,
+        status,
+        priority,
+        date: new Date().toLocaleDateString(),
+      };
+
+      setJobList([newJob, ...jobList]);
+    }
 
     setCompany("");
     setRole("");
@@ -148,7 +165,7 @@ function Dashboard() {
                   priority={job.priority}
                   date={job.date}
                   onDelete={() => handleDeleteJob(job.id)}
-                  onEdit={() => setEditingJob(job)}
+                  onEdit={() => handleEditJob(job)}
                 />
               ))}
             </div>
@@ -164,7 +181,7 @@ function Dashboard() {
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white w-full max-w-md rounded-xl p-6">
             <h2 className="text-xl font-semibold mb-4">
-              Add New Job
+              {editingJob ? "Edit Job" : "Add New Job"}
             </h2>
 
             <input
@@ -209,7 +226,7 @@ function Dashboard() {
                 onClick={handleAddJob}
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg"
               >
-                Save
+                {editingJob ? "Update" : "Save"}
               </button>
 
               <button
