@@ -95,6 +95,20 @@ function Dashboard() {
     job.company.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const totalApplied = jobList.length;
+
+const totalInterviews = jobList.filter(
+  (job) => job.status === "Interview"
+).length;
+
+const totalRejected = jobList.filter(
+  (job) => job.status === "Rejected"
+).length;
+
+const totalOffers = jobList.filter(
+  (job) => job.status === "Offer"
+).length;
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -122,25 +136,25 @@ function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           <StatCard
             title="Total Applied"
-            value="24"
+            value={totalApplied}
             subtitle="Applications"
           />
 
           <StatCard
             title="Interviews"
-            value="5"
+            value={totalInterviews}
             subtitle="Scheduled"
           />
 
           <StatCard
             title="Rejected"
-            value="8"
+            value={totalRejected}
             subtitle="Rejected"
           />
 
           <StatCard
             title="Offers"
-            value="2"
+            value={totalOffers}
             subtitle="Offers"
           />
         </div>
