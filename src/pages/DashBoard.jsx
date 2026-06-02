@@ -61,6 +61,10 @@ function Dashboard() {
     localStorage.setItem("jobs", JSON.stringify(jobList));
   }, [jobList]);
 
+  const filteredJobs = jobList.filter((job) =>
+  job.company.toLowerCase().includes(searchTerm.toLowerCase())
+);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -111,7 +115,10 @@ function Dashboard() {
           />
         </div>
 
-        <FilterBar />
+        <FilterBar
+  searchTerm={searchTerm}
+  setSearchTerm={setSearchTerm}
+/>
 
         <div className="grid lg:grid-cols-4 gap-6 mt-8">
           <div className="lg:col-span-3">
@@ -119,7 +126,7 @@ function Dashboard() {
               
               
               
-              {jobList.map((job) => (
+              {filteredJobs.map((job) => (
                 <JobCard
                   key={job.id}
                   company={job.company}
