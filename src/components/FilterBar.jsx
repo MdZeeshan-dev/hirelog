@@ -4,8 +4,8 @@ function FilterBar({
   statusFilter,
   setStatusFilter,
   priorityFilter,
-  setPriorityFilter,          
-  
+  setPriorityFilter,
+
 }) {
   return (
     <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-4 mt-8">
@@ -14,7 +14,7 @@ function FilterBar({
           type="text"
 
 
-          
+
           placeholder="Search by company or role..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
