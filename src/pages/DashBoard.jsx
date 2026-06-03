@@ -200,6 +200,8 @@ function Dashboard() {
                     company={job.company}
                     role={job.role}
                     status={job.status}
+
+                    
                     priority={job.priority}
                     date={job.date}
                     onDelete={() => handleDeleteJob(job.id)}
