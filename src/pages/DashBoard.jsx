@@ -22,7 +22,7 @@ function Dashboard() {
     return jobs;
   });
 
-const [priorityFilter, setPriorityFilter] = useState("All");
+  const [priorityFilter, setPriorityFilter] = useState("All");
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [status, setStatus] = useState("Applied");
@@ -94,32 +94,32 @@ const [priorityFilter, setPriorityFilter] = useState("All");
     localStorage.setItem("jobs", JSON.stringify(jobList));
   }, [jobList]);
 
-const filteredJobs = jobList.filter((job) => {
-  const matchesSearch =
-    job.company.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredJobs = jobList.filter((job) => {
+    const matchesSearch =
+      job.company.toLowerCase().includes(searchTerm.toLowerCase());
 
-  const matchesStatus =
-    statusFilter === "All" || job.status === statusFilter;
+    const matchesStatus =
+      statusFilter === "All" || job.status === statusFilter;
 
-  const matchesPriority =
-    priorityFilter === "All" || job.priority === priorityFilter;
+    const matchesPriority =
+      priorityFilter === "All" || job.priority === priorityFilter;
 
-  return matchesSearch && matchesStatus && matchesPriority;
-});
+    return matchesSearch && matchesStatus && matchesPriority;
+  });
 
   const totalApplied = jobList.length;
 
-const totalInterviews = jobList.filter(
-  (job) => job.status === "Interview"
-).length;
+  const totalInterviews = jobList.filter(
+    (job) => job.status === "Interview"
+  ).length;
 
-const totalRejected = jobList.filter(
-  (job) => job.status === "Rejected"
-).length;
+  const totalRejected = jobList.filter(
+    (job) => job.status === "Rejected"
+  ).length;
 
-const totalOffers = jobList.filter(
-  (job) => job.status === "Offer"
-).length;
+  const totalOffers = jobList.filter(
+    (job) => job.status === "Offer"
+  ).length;
 
 
   return (
@@ -129,11 +129,11 @@ const totalOffers = jobList.filter(
       <div className="max-w-[1400px] mx-auto px-6 py-8">
         <div className="flex items-center justify-between">
           <div>
-           <h1 className="text-5xl font-bold text-black dark:text-white">
+            <h1 className="text-5xl font-bold text-black dark:text-white">
               Welcome, Zeeshan!
             </h1>
 
-           <p className="text-gray-600 dark:text-gray-300 mt-3 text-lg">
+            <p className="text-gray-600 dark:text-gray-300 mt-3 text-lg">
               Track your job applications efficiently.
             </p>
           </div>
@@ -171,43 +171,43 @@ const totalOffers = jobList.filter(
             subtitle="Offers"
           />
         </div>
-<FilterBar
-  searchTerm={searchTerm}
-  setSearchTerm={setSearchTerm}
-  statusFilter={statusFilter}
-  setStatusFilter={setStatusFilter}
-  priorityFilter={priorityFilter}
-  setPriorityFilter={setPriorityFilter}
-/>
+        <FilterBar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          statusFilter={statusFilter}
+          setStatusFilter={setStatusFilter}
+          priorityFilter={priorityFilter}
+          setPriorityFilter={setPriorityFilter}
+        />
 
         <div className="grid lg:grid-cols-4 gap-6 mt-8">
           <div className="lg:col-span-3">
-<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-  {filteredJobs.length === 0 ? (
-    <div className="col-span-full bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-10 text-center">
-      <h2 className="text-2xl font-semibold text-black dark:text-white">
-        No jobs found
-      </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {filteredJobs.length === 0 ? (
+                <div className="col-span-full bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-10 text-center">
+                  <h2 className="text-2xl font-semibold text-black dark:text-white">
+                    No jobs found
+                  </h2>
 
-      <p className="text-gray-500 mt-2">
-        Start by adding your first application.
-      </p>
-    </div>
-  ) : (
-    filteredJobs.map((job) => (
-      <JobCard
-        key={job.id}
-        company={job.company}
-        role={job.role}
-        status={job.status}
-        priority={job.priority}
-        date={job.date}
-        onDelete={() => handleDeleteJob(job.id)}
-        onEdit={() => handleEditJob(job)}
-      />
-    ))
-  )}
-</div>
+                  <p className="text-gray-500 mt-2">
+                    Start by adding your first application.
+                  </p>
+                </div>
+              ) : (
+                filteredJobs.map((job) => (
+                  <JobCard
+                    key={job.id}
+                    company={job.company}
+                    role={job.role}
+                    status={job.status}
+                    priority={job.priority}
+                    date={job.date}
+                    onDelete={() => handleDeleteJob(job.id)}
+                    onEdit={() => handleEditJob(job)}
+                  />
+                ))
+              )}
+            </div>
           </div>
 
           <div>
@@ -218,8 +218,8 @@ const totalOffers = jobList.filter(
 
       {showForm && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-        <div className="bg-white dark:bg-slate-800 w-full max-w-md rounded-xl p-6">
-           <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          <div className="bg-white dark:bg-slate-800 w-full max-w-md rounded-xl p-6">
+            <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
               {editingJob ? "Edit Job" : "Add New Job"}
             </h2>
 
