@@ -12,6 +12,9 @@ function FilterBar({
       <div className="flex flex-col lg:flex-row gap-4">
         <input
           type="text"
+
+
+          
           placeholder="Search by company or role..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
