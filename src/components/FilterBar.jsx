@@ -5,9 +5,6 @@ function FilterBar({
   setStatusFilter,
   priorityFilter,
   setPriorityFilter,          
-
-
-
   
 }) {
   return (
