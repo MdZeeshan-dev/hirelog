@@ -4,9 +4,9 @@ function JobCard({
   status,
   priority,
   date,
+  logo,
   onDelete,
-  onEdit,
-}) {
+}){
   let priorityStyle = "";
 
   if (priority === "High") {
