@@ -199,18 +199,15 @@ function Dashboard() {
                 </div>
               ) : (
                 filteredJobs.map((job) => (
-                  <JobCard
-                    key={job.id}
-                    company={job.company}
-                    role={job.role}
-                    status={job.status}
-
-                    
-                    priority={job.priority}
-                    date={job.date}
-                    onDelete={() => handleDeleteJob(job.id)}
-                    onEdit={() => handleEditJob(job)}
-                  />
+<JobCard
+  key={job.id}
+  company={job.company}
+  role={job.role}
+  status={job.status}
+  priority={job.priority}
+  date={job.date}
+  logo={job.logo}
+/>
                 ))
               )}
             </div>
