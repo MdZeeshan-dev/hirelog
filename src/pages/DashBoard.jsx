@@ -11,6 +11,7 @@ import { jobs } from "../data/jobs";
 
 function Dashboard() {
   const [showForm, setShowForm] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const [jobList, setJobList] = useState(() => {
     const savedJobs = localStorage.getItem("jobs");
@@ -123,24 +124,27 @@ function Dashboard() {
 
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
-      <Navbar />
+  <div className={darkMode ? "dark min-h-screen bg-slate-950" : "min-h-screen bg-gray-50"}>
+      <Navbar
+  darkMode={darkMode}
+  setDarkMode={setDarkMode}
+/>
 
-      <div className="max-w-[1400px] mx-auto px-6 py-8">
+      <div className="max-w-[1400px] mx-auto px-6 py-8 text-black dark:text-white">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-5xl font-bold text-black dark:text-white">
+           <h1 className="text-5xl font-bold text-black dark:text-white">
               Welcome, Zeeshan!
             </h1>
 
-            <p className="text-gray-600 dark:text-gray-300 mt-3 text-lg">
+           <p className="text-gray-600 dark:text-gray-300 mt-3 text-lg">
               Track your job applications efficiently.
             </p>
           </div>
 
           <button
             onClick={() => setShowForm(true)}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 shadow-lg"
           >
             + Add Job
           </button>
