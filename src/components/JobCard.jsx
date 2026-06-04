@@ -6,6 +6,7 @@ function JobCard({
   date,
   logo,
   onDelete,
+  onEdit,
 }){
   let priorityStyle = "";
 
