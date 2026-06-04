@@ -207,6 +207,8 @@ function Dashboard() {
   priority={job.priority}
   date={job.date}
   logo={job.logo}
+  onDelete={() => handleDeleteJob(job.id)}
+  onEdit={() => handleEditJob(job)}
 />
                 ))
               )}
