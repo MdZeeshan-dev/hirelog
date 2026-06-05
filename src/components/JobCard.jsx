@@ -7,7 +7,7 @@ function JobCard({
   logo,
   onDelete,
   onEdit,
-}){
+}) {
   let priorityStyle = "";
 
   if (priority === "High") {
@@ -19,23 +19,23 @@ function JobCard({
   }
 
   return (
-   <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+    <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-md transition">
       <div className="flex justify-between items-start">
-<div>
-  <img
-    src={logo}
-    alt={company}
-    className="w-12 h-12 object-contain mb-3"
-  />
+        <div>
+          <img
+            src={logo}
+            alt={company}
+            className="w-12 h-12 object-contain mb-3"
+          />
 
-  <h2 className="text-2xl font-semibold text-black dark:text-white">
-    {company}
-  </h2>
+          <h2 className="text-2xl font-semibold text-black dark:text-white">
+            {company}
+          </h2>
 
-  <p className="text-gray-600 dark:text-gray-300 mt-2">
-    {role}
-  </p>
-</div>
+          <p className="text-gray-600 dark:text-gray-300 mt-2">
+            {role}
+          </p>
+        </div>
 
         <span className="text-xs text-gray-500">
           {date}
