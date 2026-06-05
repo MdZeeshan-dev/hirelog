@@ -14,6 +14,8 @@ function JobCard({
     priorityStyle = "bg-red-100 text-red-600";
   } else if (priority === "Medium") {
     priorityStyle = "bg-yellow-100 text-yellow-600";
+
+    
   } else {
     priorityStyle = "bg-green-100 text-green-600";
   }
