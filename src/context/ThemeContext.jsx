@@ -12,9 +12,6 @@ function ThemeProvider({ children }) {
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
-
-
-
   
 
   return (
