@@ -25,6 +25,12 @@ export const jobs = [
     role: "Backend Developer",
     status: "Rejected",
     priority: "Low",
+
+
+
+
+
+    
     date: "10 Sep 2025",
     logo: "https://www.amazon.com/favicon.ico",
   },
