@@ -34,6 +34,18 @@ function Dashboard() {
 
 
   const [editingJob, setEditingJob] = useState(null);
+  const getLogoByCompany = (company) => {
+  const logos = {
+    Google: "https://www.google.com/favicon.ico",
+    Microsoft: "https://www.microsoft.com/favicon.ico",
+    Amazon: "https://www.amazon.com/favicon.ico",
+  };
+
+  return (
+    logos[company] ||
+    "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+  );
+};
   const handleDeleteJob = (id) => {
     const updatedJobs = jobList.filter((job) => job.id !== id);
     setJobList(updatedJobs);
@@ -71,14 +83,15 @@ function Dashboard() {
       setJobList(updatedJobs);
       setEditingJob(null);
     } else {
-      const newJob = {
-        id: Date.now(),
-        company,
-        role,
-        status,
-        priority,
-        date: new Date().toLocaleDateString(),
-      };
+const newJob = {
+  id: Date.now(),
+  company,
+  role,
+  status,
+  priority,
+  date: new Date().toLocaleDateString(),
+  logo: getLogoByCompany(company),
+};
 
       setJobList([newJob, ...jobList]);
     }
