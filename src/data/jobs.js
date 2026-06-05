@@ -6,7 +6,7 @@ export const jobs = [
     status: "Interview",
     priority: "High",
     date: "15 Sep 2025",
-    logo: "https://logo.clearbit.com/google.com",
+    logo: "https://www.google.com/favicon.ico",
   },
 
   {
@@ -16,7 +16,7 @@ export const jobs = [
     status: "Applied",
     priority: "Medium",
     date: "12 Sep 2025",
-    logo: "https://logo.clearbit.com/microsoft.com",
+    logo: "https://www.microsoft.com/favicon.ico",
   },
 
   {
@@ -26,6 +26,6 @@ export const jobs = [
     status: "Rejected",
     priority: "Low",
     date: "10 Sep 2025",
-    logo: "https://logo.clearbit.com/amazon.com",
+    logo: "https://www.amazon.com/favicon.ico",
   },
 ];
