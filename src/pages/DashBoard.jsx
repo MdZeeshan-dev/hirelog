@@ -152,16 +152,16 @@ const { darkMode, setDarkMode } = useTheme();
 
 
 
-      <div className="max-w-[1600px] mx-auto px-8 py-8 text-black dark:text-white">
+      <div className="max-w-7xl mx-auto px-8 py-8 text-black dark:text-white">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-6xl font-bold text-black dark:text-white">
+            <h1 className="text-5xl font-bold text-black dark:text-white">
 
 
               Welcome, Zeeshan!
             </h1>
 
-            <p className="text-gray-600 dark:text-gray-300 mt-4 text-2xl">
+           <p className="text-gray-600 dark:text-gray-300 mt-2 text-lg">
               Track your job applications efficiently.
             </p>
           </div>

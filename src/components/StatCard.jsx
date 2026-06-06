@@ -19,33 +19,31 @@ function StatCard({ title, value, subtitle }) {
     return <Trophy size={26} className="text-yellow-500" />;
   };
 
-  return (
-    <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all">
+return (
+  <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg p-5">
+    <div className="flex items-center justify-between">
+      <div>
+        <h3 className="text-sm text-gray-500 dark:text-gray-400">
+          {title}
+        </h3>
 
-      <div className="flex justify-between items-start">
-
-        <div>
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
-            {title}
-          </p>
-
-          <h2 className="text-4xl font-bold text-black dark:text-white mt-3">
+        <div className="mt-2 flex items-end gap-2">
+          <span className="text-4xl font-bold text-blue-600">
             {value}
-          </h2>
+          </span>
 
-          <p className="text-gray-500 dark:text-gray-400 mt-2">
+          <span className="text-gray-500 dark:text-gray-400 mb-1">
             {subtitle}
-          </p>
+          </span>
         </div>
-
-        <div className="w-12 h-12 rounded-xl bg-gray-100 dark:bg-slate-700 flex items-center justify-center">
-          {getIcon()}
-        </div>
-
       </div>
 
+      <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+        <Briefcase size={22} className="text-blue-600" />
+      </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default StatCard;

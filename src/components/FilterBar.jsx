@@ -8,7 +8,7 @@ function FilterBar({
 
 }) {
   return (
-    <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-4 mt-8">
+    <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-lg p-3 mt-8">
       <div className="flex flex-col lg:flex-row gap-4">
         <input 
           type="text"
@@ -24,7 +24,7 @@ function FilterBar({
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="border rounded-lg px-4 py-3"
+          className="border rounded-lg px-4 py-2"
         >
           <option value="All">All Status</option>
           <option value="Applied">Applied</option>
@@ -36,7 +36,7 @@ function FilterBar({
         <select
           value={priorityFilter}
           onChange={(e) => setPriorityFilter(e.target.value)}
-          className="border rounded-lg px-4 py-3"
+          className="border rounded-lg px-4 py-2"
         >
           <option value="All">All Priority</option>
           <option value="High">High</option>
@@ -44,11 +44,11 @@ function FilterBar({
           <option value="Low">Low</option>
         </select>
 
-        <select className="border rounded-lg px-4 py-3">
+        <select className="border rounded-lg px-4 py-2">
           <option>Sort: Latest</option>
         </select>
 
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg">
+        <button className="bg-blue-600 text-white px-5 py-2 rounded-lg">
           Apply Filters
         </button>
       </div>
