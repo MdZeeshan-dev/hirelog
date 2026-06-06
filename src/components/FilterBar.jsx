@@ -10,7 +10,7 @@ function FilterBar({
   return (
     <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl p-4 mt-8">
       <div className="flex flex-col lg:flex-row gap-4">
-        <input
+        <input 
           type="text"
 
 

@@ -35,17 +35,17 @@ function Dashboard() {
 
   const [editingJob, setEditingJob] = useState(null);
   const getLogoByCompany = (company) => {
-  const logos = {
-    Google: "https://www.google.com/favicon.ico",
-    Microsoft: "https://www.microsoft.com/favicon.ico",
-    Amazon: "https://www.amazon.com/favicon.ico",
-  };
+    const logos = {
+      google: "https://www.google.com/favicon.ico",
+      microsoft: "https://www.microsoft.com/favicon.ico",
+      amazon: "https://www.amazon.com/favicon.ico",
+    };
 
-  return (
-    logos[company] ||
-    "https://cdn-icons-png.flaticon.com/512/149/149071.png"
-  );
-};
+    return (
+      logos[company.trim().toLowerCase()] ||
+      "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+    );
+  };
   const handleDeleteJob = (id) => {
     const updatedJobs = jobList.filter((job) => job.id !== id);
     setJobList(updatedJobs);
@@ -83,15 +83,15 @@ function Dashboard() {
       setJobList(updatedJobs);
       setEditingJob(null);
     } else {
-const newJob = {
-  id: Date.now(),
-  company,
-  role,
-  status,
-  priority,
-  date: new Date().toLocaleDateString(),
-  logo: getLogoByCompany(company),
-};
+      const newJob = {
+        id: Date.now(),
+        company,
+        role,
+        status,
+        priority,
+        date: new Date().toLocaleDateString(),
+        logo: getLogoByCompany(company),
+      };
 
       setJobList([newJob, ...jobList]);
     }
@@ -131,6 +131,7 @@ const newJob = {
     (job) => job.status === "Rejected"
   ).length;
 
+
   const totalOffers = jobList.filter(
     (job) => job.status === "Offer"
   ).length;
@@ -167,31 +168,34 @@ const newJob = {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-          <StatCard
-            title="Total Applied"
-            value={totalApplied}
-            subtitle="Applications"
-          />
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+  <StatCard
+    title="Total Applied"
+    value={totalApplied}
+    subtitle="Applications"
+  />
 
-          <StatCard
-            title="Interviews"
-            value={totalInterviews}
-            subtitle="Scheduled"
-          />
+  <StatCard
+    title="Interviews"
+    value={totalInterviews}
+    subtitle="Scheduled"
+  />
 
-          <StatCard
-            title="Rejected"
-            value={totalRejected}
-            subtitle="Rejected"
-          />
+  <StatCard
+    title="Rejected"
+    value={totalRejected}
+    subtitle="Rejected"
+  />
 
-          <StatCard
-            title="Offers"
-            value={totalOffers}
-            subtitle="Offers"
-          />
-        </div>
+  <StatCard
+    title="Offers"
+    value={totalOffers}
+    subtitle="Offers"
+  />
+</div>
+
+<hr className="border-gray-200 dark:border-slate-700 my-8" />
+        <hr className="border-gray-200 dark:border-slate-700 my-8" />
         <FilterBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
@@ -216,7 +220,11 @@ const newJob = {
                 </div>
               ) : (
                 filteredJobs.map((job) => (
+                  
                   <JobCard
+
+                  
+                  
                     key={job.id}
                     company={job.company}
                     role={job.role}

@@ -13,7 +13,7 @@ function JobCard({
   if (priority === "High") {
     priorityStyle = "bg-red-100 text-red-700";
   } else if (priority === "Medium") {
-    priorityStyle = "bg-yellow-100 text-yellow-700";
+    priorityStyle = "bg-slate-200 text-slate-700";
   } else {
     priorityStyle = "bg-green-100 text-green-700";
   }
@@ -31,11 +31,11 @@ function JobCard({
   }
 
   return (
-    <div className="bg-white dark:bg-slate-800 border dark:border-slate-700 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+    <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl overflow-hidden">
 
       <div className="p-6">
 
-        <div className="flex items-start justify-between">
+        <div className="flex items-center gap-4">
 
           <img
             src={logo}
@@ -43,36 +43,40 @@ function JobCard({
             className="w-14 h-14 object-contain"
           />
 
-          <span className="text-xs text-gray-500">
-            {date}
-          </span>
+          <h2 className="text-2xl font-bold text-black dark:text-white">
+            {company}
+          </h2>
 
         </div>
 
-        <h2 className="text-3xl font-bold text-black dark:text-white mt-4">
-          {company}
-        </h2>
+        <div className="border-t dark:border-slate-700 mt-5 pt-5">
 
-        <p className="text-gray-600 dark:text-gray-300 mt-3">
-          {role}
-        </p>
+          <h3 className="text-xl font-semibold text-black dark:text-white">
+            {role}
+          </h3>
+
+          <p className="text-gray-500 mt-4">
+            Applied on: {date}
+          </p>
+
+        </div>
 
         <div className="border-t dark:border-slate-700 mt-5 pt-5">
 
           <div className="flex gap-2 flex-wrap">
-
             <span
-              className={`px-3 py-1 rounded-md text-sm font-medium ${statusStyle}`}
+              className={`px-4 py-2 rounded-md text-sm font-medium ${statusStyle}`}
             >
               {status}
             </span>
+          </div>
 
+          <div className="mt-4">
             <span
-              className={`px-3 py-1 rounded-md text-sm font-medium ${priorityStyle}`}
+              className={`px-4 py-2 rounded-md text-sm font-medium ${priorityStyle}`}
             >
-              {priority}
+              {priority} Priority
             </span>
-
           </div>
 
         </div>
@@ -83,14 +87,14 @@ function JobCard({
 
         <button
           onClick={onEdit}
-          className="flex-1 border dark:border-slate-600 rounded-lg py-2 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700 transition"
+          className="flex-1 border border-gray-300 dark:border-slate-600 rounded-lg py-3 text-black dark:text-white"
         >
           Edit
         </button>
 
         <button
           onClick={onDelete}
-          className="flex-1 bg-red-500 text-white rounded-lg py-2 hover:bg-red-600 transition"
+          className="flex-1 border border-gray-300 dark:border-slate-600 rounded-lg py-3 text-black dark:text-white"
         >
           Delete
         </button>
