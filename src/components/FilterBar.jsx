@@ -7,8 +7,9 @@ function FilterBar({
   setPriorityFilter,
 }) {
   return (
-    <div className="border-t border-gray-200 dark:border-slate-700 pt-4">
+    <div className="border-t border-slate-700 pt-4">
       <div className="flex flex-col lg:flex-row gap-3">
+
         <input
           type="text"
           placeholder="Search by company or role"
@@ -21,12 +22,9 @@ function FilterBar({
             text-sm
             rounded-md
             border
-            border-gray-200
-            dark:border-slate-700
-            
-            bg-white dark:bg-[#111827]
-            text-gray-700
-            dark:text-white
+            border-slate-700
+            bg-[#111827]
+            text-white
             outline-none
           "
         />
@@ -40,10 +38,9 @@ function FilterBar({
             text-sm
             rounded-md
             border
-            border-gray-200
-            dark:border-slate-700
-            bg-white dark:bg-[#111827]
-            dark:text-white
+            border-slate-700
+            bg-[#111827]
+            text-white
           "
         >
           <option value="All">Status: All</option>
@@ -62,10 +59,9 @@ function FilterBar({
             text-sm
             rounded-md
             border
-            border-gray-200
-            dark:border-slate-700
-            bg-white dark:bg-[#111827]
-            dark:text-white
+            border-slate-700
+            bg-[#111827]
+            text-white
           "
         >
           <option value="All">Priority: All</option>
@@ -74,36 +70,6 @@ function FilterBar({
           <option value="Low">Low</option>
         </select>
 
-        <select
-          className="
-            h-10
-            px-3
-            text-sm
-            rounded-md
-            border
-            border-gray-200
-            dark:border-slate-700
-            bg-white dark:bg-[#111827]
-            dark:text-white
-          "
-        >
-          <option>Sort: Latest</option>
-        </select>
-
-        <button
-          className="
-            h-10
-            px-5
-            text-sm
-            font-medium
-            bg-blue-600
-            hover:bg-blue-700
-            text-white
-            rounded-md
-          "
-        >
-          Apply Filters
-        </button>
       </div>
     </div>
   );
