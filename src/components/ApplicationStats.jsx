@@ -9,6 +9,7 @@ function ApplicationStats({ jobList }) {
     (job) => job.status === "Rejected",
   ).length;
 
+  
   const totalOffers = jobList.filter((job) => job.status === "Offer").length;
 
   return (

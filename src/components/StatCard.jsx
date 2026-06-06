@@ -32,6 +32,7 @@ function StatCard({ title, value, subtitle }) {
       </div>
     );
   };
+  
 
   return (
     <div className="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700/50 rounded-lg px-4 py-4">

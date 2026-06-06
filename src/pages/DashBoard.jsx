@@ -247,6 +247,7 @@ if (!company.trim() || !role.trim()) {
             className="w-full border border-slate-700 bg-[#020817] text-white rounded-lg p-2 mb-3"
             />
 
+
             <input
               type="text"
               placeholder="Role"

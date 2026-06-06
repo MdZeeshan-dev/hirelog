@@ -28,5 +28,6 @@ export const jobs = [
     
     date: "10 Sep 2025",
     logo: "https://www.amazon.com/favicon.ico",
+    
   },
 ];

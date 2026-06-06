@@ -23,6 +23,7 @@ function Navbar() {
             </li>
           </ul>
         </div>
+        
 
         <div className="flex items-center gap-3">
           <span className="hidden md:block text-xs text-slate-300">

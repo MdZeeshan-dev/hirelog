@@ -29,6 +29,7 @@ function JobCard({
   } else {
     statusStyle = "bg-blue-100 text-blue-700";
   }
+  
 
   return (
     <div className="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700/50 rounded-lg overflow-hidden">
