@@ -6,7 +6,7 @@ import FilterBar from "../components/FilterBar";
 import JobCard from "../components/JobCard";
 import ApplicationStats from "../components/ApplicationStats";
 
-import { useTheme } from "../context/ThemeContext";
+
 import { jobs } from "../data/jobs";
 
 function Dashboard() {
@@ -135,14 +135,14 @@ function Dashboard() {
       
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-8 py-8 text-black dark:text-white">
-        <div className="flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-8 py-8 text-black dark:text-white">
+       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h1 className="text-5xl font-bold text-black dark:text-white">
+            <h1 className="text-3xl md:text-4xl font-bold text-white">
               Welcome, Zeeshan!
             </h1>
 
-            <p className="text-gray-600 dark:text-gray-300 mt-2 text-lg">
+           <p className="text-slate-400 mt-2 text-sm md:text-base">
               Track your job applications efficiently.
             </p>
           </div>
@@ -227,7 +227,7 @@ function Dashboard() {
 
       {showForm && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-slate-800 w-full max-w-md rounded-xl p-6">
+          <div className="bg-white dark:bg-slate-800 w-full max-w-lg rounded-xl p-6">
             <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
               {editingJob ? "Edit Job" : "Add New Job"}
             </h2>
