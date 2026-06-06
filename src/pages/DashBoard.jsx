@@ -44,10 +44,16 @@ function Dashboard() {
       "https://cdn-icons-png.flaticon.com/512/149/149071.png"
     );
   };
-  const handleDeleteJob = (id) => {
-    const updatedJobs = jobList.filter((job) => job.id !== id);
-    setJobList(updatedJobs);
-  };
+const handleDeleteJob = (id) => {
+  const confirmed = window.confirm(
+    "Are you sure you want to delete this job application?"
+  );
+
+  if (!confirmed) return;
+
+  const updatedJobs = jobList.filter((job) => job.id !== id);
+  setJobList(updatedJobs);
+};
 
   const handleEditJob = (job) => {
     setEditingJob(job);
@@ -60,9 +66,10 @@ function Dashboard() {
     setShowForm(true);
   };
   const handleAddJob = () => {
-    if (!company.trim() || !role.trim()) {
-      return;
-    }
+if (!company.trim() || !role.trim()) {
+  alert("Company and Role are required");
+  return;
+}
 
     if (editingJob) {
       const updatedJobs = jobList.map((job) =>
@@ -227,7 +234,7 @@ function Dashboard() {
 
       {showForm && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-slate-800 w-full max-w-lg rounded-xl p-6">
+          <div className="bg-[#111827] w-full max-w-lg rounded-xl p-6">
             <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
               {editingJob ? "Edit Job" : "Add New Job"}
             </h2>
@@ -237,7 +244,7 @@ function Dashboard() {
               placeholder="Company"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="w-full border rounded-lg p-2 mb-3"
+            className="w-full border border-slate-700 bg-[#020817] text-white rounded-lg p-2 mb-3"
             />
 
             <input
