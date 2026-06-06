@@ -6,12 +6,12 @@ import FilterBar from "../components/FilterBar";
 import JobCard from "../components/JobCard";
 import ApplicationStats from "../components/ApplicationStats";
 
-
+import { useTheme } from "../context/ThemeContext";
 import { jobs } from "../data/jobs";
 
 function Dashboard() {
   const [showForm, setShowForm] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  
 
   const [jobList, setJobList] = useState(() => {
     const savedJobs = localStorage.getItem("jobs");
