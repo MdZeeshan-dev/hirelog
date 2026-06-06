@@ -138,7 +138,13 @@ function Dashboard() {
 
 
   return (
-    <div className={darkMode ? "dark min-h-screen bg-slate-950" : "min-h-screen bg-gray-50"}>
+    <div
+  className={
+    darkMode
+      ? "dark min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
+      : "min-h-screen bg-slate-50"
+  }
+>
       <Navbar
         darkMode={darkMode}
         setDarkMode={setDarkMode}
@@ -146,7 +152,7 @@ function Dashboard() {
 
 
 
-      <div className="max-w-[1400px] mx-auto px-6 py-8 text-black dark:text-white">
+      <div className="max-w-[1600px] mx-auto px-8 py-8 text-black dark:text-white">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-6xl font-bold text-black dark:text-white">
