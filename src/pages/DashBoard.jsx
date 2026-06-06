@@ -11,7 +11,7 @@ import { jobs } from "../data/jobs";
 
 function Dashboard() {
   const [showForm, setShowForm] = useState(false);
-const { darkMode, setDarkMode } = useTheme();
+  const { darkMode, setDarkMode } = useTheme();
 
   const [jobList, setJobList] = useState(() => {
     const savedJobs = localStorage.getItem("jobs");
@@ -138,17 +138,18 @@ const { darkMode, setDarkMode } = useTheme();
 
 
   return (
+
+
+
+
     <div
       className={
         darkMode
-          ? "dark min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
-          : "min-h-screen bg-slate-50"
+          ? "min-h-screen bg-[#020817]"
+          : "min-h-screen bg-slate-100"
       }
     >
-      <Navbar
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-      />
+      <Navbar />
 
 
 
@@ -161,7 +162,7 @@ const { darkMode, setDarkMode } = useTheme();
               Welcome, Zeeshan!
             </h1>
 
-           <p className="text-gray-600 dark:text-gray-300 mt-2 text-lg">
+            <p className="text-gray-600 dark:text-gray-300 mt-2 text-lg">
               Track your job applications efficiently.
             </p>
           </div>
