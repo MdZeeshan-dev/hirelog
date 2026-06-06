@@ -229,6 +229,7 @@ if (!company.trim() || !role.trim()) {
           <div>
             <ApplicationStats jobList={jobList} />
           </div>
+          
         </div>
       </div>
 
