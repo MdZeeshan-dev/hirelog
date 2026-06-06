@@ -11,7 +11,7 @@ import { jobs } from "../data/jobs";
 
 function Dashboard() {
   const [showForm, setShowForm] = useState(false);
-  
+const { darkMode, setDarkMode } = useTheme();
 
   const [jobList, setJobList] = useState(() => {
     const savedJobs = localStorage.getItem("jobs");
@@ -139,12 +139,12 @@ function Dashboard() {
 
   return (
     <div
-  className={
-    darkMode
-      ? "dark min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
-      : "min-h-screen bg-slate-50"
-  }
->
+      className={
+        darkMode
+          ? "dark min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
+          : "min-h-screen bg-slate-50"
+      }
+    >
       <Navbar
         darkMode={darkMode}
         setDarkMode={setDarkMode}
@@ -161,7 +161,7 @@ function Dashboard() {
               Welcome, Zeeshan!
             </h1>
 
-          <p className="text-gray-600 dark:text-gray-300 mt-4 text-2xl">
+            <p className="text-gray-600 dark:text-gray-300 mt-4 text-2xl">
               Track your job applications efficiently.
             </p>
           </div>
@@ -174,34 +174,34 @@ function Dashboard() {
           </button>
         </div>
 
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-  <StatCard
-    title="Total Applied"
-    value={totalApplied}
-    subtitle="Applications"
-  />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+          <StatCard
+            title="Total Applied"
+            value={totalApplied}
+            subtitle="Applications"
+          />
 
-  <StatCard
-    title="Interviews"
-    value={totalInterviews}
-    subtitle="Scheduled"
-  />
+          <StatCard
+            title="Interviews"
+            value={totalInterviews}
+            subtitle="Scheduled"
+          />
 
-  <StatCard
-    title="Rejected"
-    value={totalRejected}
-    subtitle="Rejected"
-  />
+          <StatCard
+            title="Rejected"
+            value={totalRejected}
+            subtitle="Rejected"
+          />
 
-  <StatCard
-    title="Offers"
-    value={totalOffers}
-    subtitle="Offers"
-  />
-</div>
+          <StatCard
+            title="Offers"
+            value={totalOffers}
+            subtitle="Offers"
+          />
+        </div>
 
-<hr className="border-gray-200 dark:border-slate-700 my-8" />
-       
+        <hr className="border-gray-200 dark:border-slate-700 my-8" />
+
         <FilterBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
@@ -226,11 +226,11 @@ function Dashboard() {
                 </div>
               ) : (
                 filteredJobs.map((job) => (
-                  
+
                   <JobCard
 
-                  
-                  
+
+
                     key={job.id}
                     company={job.company}
                     role={job.role}
