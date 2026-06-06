@@ -11,7 +11,6 @@ import { jobs } from "../data/jobs";
 
 function Dashboard() {
   const [showForm, setShowForm] = useState(false);
-  const { darkMode, setDarkMode } = useTheme();
 
   const [jobList, setJobList] = useState(() => {
     const savedJobs = localStorage.getItem("jobs");
@@ -32,7 +31,6 @@ function Dashboard() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-
   const [editingJob, setEditingJob] = useState(null);
   const getLogoByCompany = (company) => {
     const logos = {
@@ -50,7 +48,6 @@ function Dashboard() {
     const updatedJobs = jobList.filter((job) => job.id !== id);
     setJobList(updatedJobs);
   };
-
 
   const handleEditJob = (job) => {
     setEditingJob(job);
@@ -71,13 +68,13 @@ function Dashboard() {
       const updatedJobs = jobList.map((job) =>
         job.id === editingJob.id
           ? {
-            ...job,
-            company,
-            role,
-            status,
-            priority,
-          }
-          : job
+              ...job,
+              company,
+              role,
+              status,
+              priority,
+            }
+          : job,
       );
 
       setJobList(updatedJobs);
@@ -109,11 +106,11 @@ function Dashboard() {
   }, [jobList]);
 
   const filteredJobs = jobList.filter((job) => {
-    const matchesSearch =
-      job.company.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = job.company
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
 
-    const matchesStatus =
-      statusFilter === "All" || job.status === statusFilter;
+    const matchesStatus = statusFilter === "All" || job.status === statusFilter;
 
     const matchesPriority =
       priorityFilter === "All" || job.priority === priorityFilter;
@@ -124,41 +121,24 @@ function Dashboard() {
   const totalApplied = jobList.length;
 
   const totalInterviews = jobList.filter(
-    (job) => job.status === "Interview"
+    (job) => job.status === "Interview",
   ).length;
 
   const totalRejected = jobList.filter(
-    (job) => job.status === "Rejected"
+    (job) => job.status === "Rejected",
   ).length;
 
-
-  const totalOffers = jobList.filter(
-    (job) => job.status === "Offer"
-  ).length;
-
+  const totalOffers = jobList.filter((job) => job.status === "Offer").length;
 
   return (
-
-
-
-
-    <div
-      className={
-        darkMode
-          ? "min-h-screen bg-[#020817]"
-          : "min-h-screen bg-slate-100"
-      }
-    >
+       <div className="min-h-screen bg-[#020817]">
+      
       <Navbar />
-
-
 
       <div className="max-w-7xl mx-auto px-8 py-8 text-black dark:text-white">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-5xl font-bold text-black dark:text-white">
-
-
               Welcome, Zeeshan!
             </h1>
 
@@ -194,11 +174,7 @@ function Dashboard() {
             subtitle="Rejected"
           />
 
-          <StatCard
-            title="Offers"
-            value={totalOffers}
-            subtitle="Offers"
-          />
+          <StatCard title="Offers" value={totalOffers} subtitle="Offers" />
         </div>
 
         <hr className="border-gray-200 dark:border-slate-700 my-8" />
@@ -227,11 +203,7 @@ function Dashboard() {
                 </div>
               ) : (
                 filteredJobs.map((job) => (
-
                   <JobCard
-
-
-
                     key={job.id}
                     company={job.company}
                     role={job.role}
@@ -319,10 +291,4 @@ function Dashboard() {
   );
 }
 
-
 export default Dashboard;
-
-
-
-
-

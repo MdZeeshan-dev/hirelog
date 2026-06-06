@@ -32,25 +32,16 @@ function JobCard({
 
   return (
     <div className="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700/50 rounded-lg overflow-hidden">
-
       <div className="p-4">
-
         <div className="flex items-center gap-3">
-
-          <img
-            src={logo}
-            alt={company}
-            className="w-8 h-8 object-contain"
-          />
+          <img src={logo} alt={company} className="w-8 h-8 object-contain" />
 
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
             {company}
           </h2>
-
         </div>
 
         <div className="border-t border-gray-200 dark:border-slate-700 mt-4 pt-4">
-
           <h3 className="text-base font-medium text-gray-900 dark:text-white">
             {role}
           </h3>
@@ -58,11 +49,9 @@ function JobCard({
           <p className="text-sm text-gray-500 dark:text-slate-400 mt-2">
             Applied on: {date}
           </p>
-
         </div>
 
         <div className="border-t border-gray-200 dark:border-slate-700 mt-4 pt-4">
-
           <div className="flex gap-2 flex-wrap">
             <span
               className={`px-2 py-1 rounded-md text-xs font-medium ${statusStyle}`}
@@ -76,13 +65,10 @@ function JobCard({
               {priority} Priority
             </span>
           </div>
-
         </div>
-
       </div>
 
       <div className="border-t border-gray-200 dark:border-slate-700 p-3 flex gap-2">
-
         <button
           onClick={onEdit}
           className="flex-1 border border-gray-300 dark:border-slate-600 rounded-md py-1.5 text-sm text-gray-700 dark:text-white hover:bg-gray-50 dark:hover:bg-slate-700"
@@ -96,9 +82,7 @@ function JobCard({
         >
           Delete
         </button>
-
       </div>
-
     </div>
   );
 }

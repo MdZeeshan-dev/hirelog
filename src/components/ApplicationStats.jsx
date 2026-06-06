@@ -2,31 +2,25 @@ function ApplicationStats({ jobList }) {
   const totalApplied = jobList.length;
 
   const totalInterviews = jobList.filter(
-    (job) => job.status === "Interview"
+    (job) => job.status === "Interview",
   ).length;
 
   const totalRejected = jobList.filter(
-    (job) => job.status === "Rejected"
+    (job) => job.status === "Rejected",
   ).length;
 
-  const totalOffers = jobList.filter(
-    (job) => job.status === "Offer"
-  ).length;
+  const totalOffers = jobList.filter((job) => job.status === "Offer").length;
 
   return (
     <div className="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700/50 rounded-lg p-4">
-
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-5">
         Application Stats
       </h2>
 
       <div className="space-y-4">
-
         <div>
           <div className="flex justify-between text-sm mb-1">
-            <span className="text-gray-600 dark:text-slate-400">
-              Applied
-            </span>
+            <span className="text-gray-600 dark:text-slate-400">Applied</span>
             <span className="font-medium text-gray-900 dark:text-white">
               {totalApplied}
             </span>
@@ -54,9 +48,7 @@ function ApplicationStats({ jobList }) {
 
         <div>
           <div className="flex justify-between text-sm mb-1">
-            <span className="text-gray-600 dark:text-slate-400">
-              Rejected
-            </span>
+            <span className="text-gray-600 dark:text-slate-400">Rejected</span>
             <span className="font-medium text-gray-900 dark:text-white">
               {totalRejected}
             </span>
@@ -69,9 +61,7 @@ function ApplicationStats({ jobList }) {
 
         <div>
           <div className="flex justify-between text-sm mb-1">
-            <span className="text-gray-600 dark:text-slate-400">
-              Offers
-            </span>
+            <span className="text-gray-600 dark:text-slate-400">Offers</span>
             <span className="font-medium text-gray-900 dark:text-white">
               {totalOffers}
             </span>
@@ -81,11 +71,9 @@ function ApplicationStats({ jobList }) {
             <div className="h-2 bg-yellow-500 rounded-full w-1/5"></div>
           </div>
         </div>
-
       </div>
 
       <div className="grid grid-cols-2 gap-3 mt-5">
-
         <div className="border border-gray-200 dark:border-slate-700 rounded-md p-3">
           <p className="text-xs text-gray-500">Applied</p>
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -102,9 +90,7 @@ function ApplicationStats({ jobList }) {
 
         <div className="border border-gray-200 dark:border-slate-700 rounded-md p-3">
           <p className="text-xs text-gray-500">Rejected</p>
-          <h3 className="text-xl font-bold text-red-500">
-            {totalRejected}
-          </h3>
+          <h3 className="text-xl font-bold text-red-500">{totalRejected}</h3>
         </div>
 
         <div className="border border-gray-200 dark:border-slate-700 rounded-md p-3">
@@ -113,9 +99,7 @@ function ApplicationStats({ jobList }) {
             {totalOffers}
           </h3>
         </div>
-
       </div>
-
     </div>
   );
 }

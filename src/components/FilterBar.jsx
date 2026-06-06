@@ -8,9 +8,7 @@ function FilterBar({
 }) {
   return (
     <div className="border-t border-gray-200 dark:border-slate-700 pt-4">
-
       <div className="flex flex-col lg:flex-row gap-3">
-
         <input
           type="text"
           placeholder="Search by company or role"
@@ -106,7 +104,6 @@ function FilterBar({
         >
           Apply Filters
         </button>
-
       </div>
     </div>
   );

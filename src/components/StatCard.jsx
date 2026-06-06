@@ -1,9 +1,4 @@
-import {
-  Briefcase,
-  Calendar,
-  XCircle,
-  Trophy,
-} from "lucide-react";
+import { Briefcase, Calendar, XCircle, Trophy } from "lucide-react";
 
 function StatCard({ title, value, subtitle }) {
   const getIcon = () => {
@@ -40,9 +35,7 @@ function StatCard({ title, value, subtitle }) {
 
   return (
     <div className="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700/50 rounded-lg px-4 py-4">
-
       <div className="flex items-center justify-between">
-
         <div>
           <h3 className="text-xs font-medium text-gray-500 dark:text-slate-400">
             {title}
@@ -60,9 +53,7 @@ function StatCard({ title, value, subtitle }) {
         </div>
 
         {getIcon()}
-
       </div>
-
     </div>
   );
 }

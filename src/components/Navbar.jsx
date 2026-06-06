@@ -4,9 +4,7 @@ function Navbar() {
   return (
     <nav className="bg-[#0b1120] border-b border-slate-800">
       <div className="max-w-[1400px] mx-auto px-6 h-12 flex items-center justify-between">
-
         <div className="flex items-center gap-10">
-
           <h1 className="text-sm font-semibold text-white">
             💼 Job Tracker Pro
           </h1>
@@ -24,14 +22,10 @@ function Navbar() {
               Profile
             </li>
           </ul>
-
         </div>
 
         <div className="flex items-center gap-3">
-
-          <span className="text-xs text-slate-300">
-            Hello, John!
-          </span>
+          <span className="text-xs text-slate-300">Hello, John!</span>
 
           <img
             src="https://i.pravatar.cc/40"
@@ -39,13 +33,8 @@ function Navbar() {
             className="w-7 h-7 rounded-full"
           />
 
-          <ChevronDown
-            size={14}
-            className="text-slate-500"
-          />
-
+          <ChevronDown size={14} className="text-slate-500" />
         </div>
-
       </div>
     </nav>
   );
