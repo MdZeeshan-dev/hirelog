@@ -2,17 +2,17 @@ import { Moon, Sun } from "lucide-react";
 
 function Navbar({ darkMode, setDarkMode }) {
   return (
-    <nav className="bg-white dark:bg-slate-900 border-b dark:border-slate-700">
+    <nav className="bg-white dark:bg-[#0f172a] border-b border-gray-200 dark:border-slate-700">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
         <div className="flex items-center gap-12">
 
-          <h1 className="text-2xl font-bold text-blue-600">
-            HireLog
-          </h1>
+<h1 className="text-4xl font-bold text-blue-600">
+  HireLog
+</h1>
 
-          <ul className="flex gap-8 font-medium">
-            <li className="text-blue-600 border-b-2 border-blue-600 pb-1">
+        <ul className="flex gap-12 font-medium text-lg">
+       <li className="text-blue-600 border-b-4 border-blue-600 pb-3">
               Dashboard
             </li>
 
@@ -40,14 +40,14 @@ function Navbar({ darkMode, setDarkMode }) {
             )}
           </button>
 
-          <span className="font-medium dark:text-white">
+          <span className="font-semibold text-lg dark:text-white">
             Hello, Zeeshan!
           </span>
 
           <img
             src="https://i.pravatar.cc/40"
             alt="profile"
-            className="w-10 h-10 rounded-full"
+            className="w-12 h-12 rounded-full"
           />
         </div>
 

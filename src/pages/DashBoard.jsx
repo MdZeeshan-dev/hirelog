@@ -149,13 +149,13 @@ function Dashboard() {
       <div className="max-w-[1400px] mx-auto px-6 py-8 text-black dark:text-white">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-5xl font-bold text-black dark:text-white">
+            <h1 className="text-6xl font-bold text-black dark:text-white">
 
 
               Welcome, Zeeshan!
             </h1>
 
-            <p className="text-gray-600 dark:text-gray-300 mt-3 text-lg">
+          <p className="text-gray-600 dark:text-gray-300 mt-4 text-2xl">
               Track your job applications efficiently.
             </p>
           </div>
@@ -195,7 +195,7 @@ function Dashboard() {
 </div>
 
 <hr className="border-gray-200 dark:border-slate-700 my-8" />
-        <hr className="border-gray-200 dark:border-slate-700 my-8" />
+       
         <FilterBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
