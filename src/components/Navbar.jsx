@@ -23,13 +23,35 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        
+
 
         <div className="flex items-center gap-3">
           <span className="hidden md:block text-xs text-slate-300">
-            Hello, John!
+            Hello, {localStorage.getItem("userName")}
           </span>
 
+<button
+  onClick={() => {
+    localStorage.removeItem("userName");
+    window.location.reload();
+  }}
+  className="
+    px-3
+    py-1.5
+    text-xs
+    font-medium
+    rounded-md
+    bg-slate-800
+    border
+    border-slate-700
+    text-slate-300
+    hover:bg-slate-700
+    hover:text-white
+    transition
+  "
+>
+  Change User
+</button>
           <img
             src="https://i.pravatar.cc/40"
             alt="profile"

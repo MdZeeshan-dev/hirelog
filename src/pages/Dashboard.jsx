@@ -22,6 +22,10 @@ function Dashboard() {
     return jobs;
   });
 
+
+
+
+const [nameInput, setNameInput] = useState("");
   const [priorityFilter, setPriorityFilter] = useState("All");
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
@@ -136,7 +140,46 @@ if (!company.trim() || !role.trim()) {
   ).length;
 
   const totalOffers = jobList.filter((job) => job.status === "Offer").length;
+const [userName, setUserName] = useState(
+  localStorage.getItem("userName") || ""
+);
 
+
+if (!userName) {
+  return (
+    <div className="min-h-screen bg-[#020817] flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-[#111827] border border-slate-700 rounded-2xl p-8 shadow-2xl">
+        <h1 className="text-2xl font-bold text-white mb-2">
+          Welcome to HireLog
+        </h1>
+
+        <p className="text-slate-400 mb-6">
+          Enter your name to continue
+        </p>
+
+        <input
+          type="text"
+          value={nameInput}
+          onChange={(e) => setNameInput(e.target.value)}
+          placeholder="Your Name"
+          className="w-full bg-[#0f172a] border border-slate-600 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500"
+        />
+
+        <button
+          onClick={() => {
+            if (!nameInput.trim()) return;
+
+            localStorage.setItem("userName", nameInput.trim());
+            setUserName(nameInput.trim());
+          }}
+          className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+  );
+}
   return (
        <div className="min-h-screen bg-[#020817]">
       
@@ -145,8 +188,9 @@ if (!company.trim() || !role.trim()) {
       <div className="max-w-[1400px] mx-auto px-8 py-8 text-black dark:text-white">
        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
+            
             <h1 className="text-3xl md:text-4xl font-bold text-white">
-              Welcome, Zeeshan!
+              Welcome, {userName}!
             </h1>
 
            <p className="text-slate-400 mt-2 text-sm md:text-base">
@@ -229,7 +273,7 @@ if (!company.trim() || !role.trim()) {
           <div>
             <ApplicationStats jobList={jobList} />
           </div>
-          
+
         </div>
       </div>
 
