@@ -9,6 +9,8 @@ function Navbar() {
             💼 Job Tracker Pro
           </h1>
 
+          
+
           <ul className="hidden md:flex gap-6 text-xs">
             <li className="text-blue-600 border-b-2 border-blue-600 pb-3 font-medium">
               Dashboard
