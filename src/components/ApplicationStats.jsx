@@ -28,6 +28,12 @@ function ApplicationStats({ jobList }) {
 
 
         
+
+
+
+
+
+        
         <div>
           <div className="flex justify-between text-sm mb-1">
             <span className="text-gray-600 dark:text-slate-400">Applied</span>
