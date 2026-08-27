@@ -33,6 +33,10 @@ function ApplicationStats({ jobList }) {
 
 
 
+
+
+
+
         
         <div>
           <div className="flex justify-between text-sm mb-1">
